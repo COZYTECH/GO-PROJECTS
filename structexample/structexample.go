@@ -2,13 +2,16 @@ package main
 
 import "fmt"
 
-func main() {
-	// Define a struct to represent a person
-	type Person struct {
+type Person struct {
 		Name string
 		Age  int
 	}
 
-	contact := Person{Name: "Alice", Age: 30}
-	fmt.Println(contact)
+func (p Person) Greetings() string {
+	return fmt.Sprintf("Hello, %s! You are %d years old.", p.Name, p.Age)
+}
+
+func main() {
+	contact := Person{Name: "CozyTech", Age: 24}
+	fmt.Println(contact.Greetings())
 }
